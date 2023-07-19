@@ -10,7 +10,9 @@ public class Solution46 {
         if (length == 0) {
             return result;
         }
+        //当前元素是否使用过 标记位 便于回溯
         boolean[] used = new boolean[length];
+        //当前排列的内容
         Deque<Integer> path = new ArrayDeque<Integer>();
         dfs(nums, length, 0, path, used, result);
         return result;
@@ -19,6 +21,7 @@ public class Solution46 {
     private void dfs(int[] nums, int length, int depth,
                      Deque<Integer> path, boolean[] used,
                      List<List<Integer>> result) {
+        //深度等于数组长度时 停止遍历
         if (depth == length) {
             result.add(new ArrayList<>(path));
             return;
